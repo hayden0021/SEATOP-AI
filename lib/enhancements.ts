@@ -6,7 +6,7 @@ export const pageEnhancements: Partial<Record<PageKey, string>> = {
   <div class="container platform-split">
     <div class="reveal"><span class="section-kicker">DROPSHIPPING INTELLIGENCE</span><h2>Data That Finds Winners.</h2><p>Our intelligence platform analyzes product categories, supplier readiness and market signals to surface practical product opportunities for online commerce.</p><ul class="check-list"><li>Winning product discovery</li><li>Supplier and competitor analysis</li><li>Market and trend insights</li><li>Real-time performance tracking</li></ul><a class="btn btn-primary" href="/ai-dropshipping">Explore Platform <span class="btn-icon">›</span></a></div>
     <div class="analytics-console reveal" aria-hidden="true">
-      <div class="console-sidebar"><img src="/assets/seatop-mark.png" alt=""/><span>Overview</span><span>Products</span><span>Suppliers</span><span>Orders</span><span>Analytics</span></div>
+      <div class="console-sidebar"><img src="/assets/seatop-mark-transparent.png" alt=""/><span>Overview</span><span>Products</span><span>Suppliers</span><span>Orders</span><span>Analytics</span></div>
       <div class="console-main">
         <div class="console-top"><b>Overview</b><span>⌕ ↗</span></div>
         <div class="metric-row"><div><span>Total Revenue</span><b>$12.45M</b><em>+18.6%</em></div><div><span>Orders</span><b>152,680</b><em>+21.4%</em></div><div><span>Profit</span><b>$3.68M</b><em>+16.2%</em></div><div><span>ROI</span><b>2.94x</b><em>+11.7%</em></div></div>

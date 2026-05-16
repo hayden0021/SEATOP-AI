@@ -2,7 +2,7 @@ export const footerHtml = `<footer class="footer">
 <div class="container">
 <div class="footer-grid">
 <div>
-<img alt="SEATOP AI" class="footer-logo" src="/assets/seatop-wordmark.png"/>
+<img alt="SEATOP AI" class="footer-logo" src="/assets/seatop-wordmark-transparent.png"/>
 <p>Premium AI automation, commerce intelligence and digital product strategy for businesses that want cleaner workflows and stronger customer experiences.</p>
 <div aria-label="Contact links" class="social-row">
 <a aria-label="Email SEATOP AI" href="mailto:hello@seatop.ai">@</a>

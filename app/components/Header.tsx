@@ -70,11 +70,11 @@ export default function Header() {
     <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
       <div className="container nav-shell">
         <Link className="brand logoWrapper" href="/" aria-label="SEATOP AI home" onClick={closeMenus}>
-          <span className="brand-logo-wordmark">
-            <Image src="/assets/darkmode-seatop-wordmark.png" alt="SEATOP AI logo" fill sizes="260px" priority />
-          </span>
           <span className="brand-logo-mark">
-            <Image src="/assets/darkmode-seatop-mark.png" alt="SEATOP AI logo" fill sizes="44px" priority />
+            <Image src="/assets/seatop-mark-transparent.png" alt="SEATOP AI logo" fill sizes="58px" priority />
+          </span>
+          <span className="brand-logo-wordmark">
+            <Image src="/assets/seatop-wordmark-transparent.png" alt="SEATOP AI logo" fill sizes="240px" priority />
           </span>
         </Link>
 
@@ -95,7 +95,7 @@ export default function Header() {
 
             <div ref={dropdownRef} className={`nav-dropdown ${dropdownOpen ? "open" : ""}`} onMouseLeave={() => setDropdownOpen(false)}>
               <button className="nav-drop-btn" type="button" onClick={() => setDropdownOpen((value) => !value)} aria-expanded={dropdownOpen}>
-                Solutions <span aria-hidden="true">⌄</span>
+                Solutions <span aria-hidden="true">v</span>
               </button>
               <div className="dropdown-menu">
                 {solutionItems.map((item) => (
@@ -112,15 +112,16 @@ export default function Header() {
           </motion.nav>
         </AnimatePresence>
 
+        <button className={`mobile-toggle ${mobileOpen ? "open" : ""}`} aria-label="Open menu" aria-expanded={mobileOpen} onClick={() => setMobileOpen((value) => !value)}>
+          <span />
+          <span />
+          <span />
+        </button>
+
         <div className="nav-actions">
           <Link className="btn btn-primary btn-small" href="/contact" onClick={closeMenus}>
-            Get Started <span className="btn-icon">›</span>
+            Get Started <span className="btn-icon">&gt;</span>
           </Link>
-          <button className={`mobile-toggle ${mobileOpen ? "open" : ""}`} aria-label="Open menu" aria-expanded={mobileOpen} onClick={() => setMobileOpen((value) => !value)}>
-            <span />
-            <span />
-            <span />
-          </button>
         </div>
       </div>
     </header>
