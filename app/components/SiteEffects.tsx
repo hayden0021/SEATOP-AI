@@ -10,6 +10,7 @@ const SEATOP_CONFIG = {
 export default function SiteEffects() {
   useEffect(() => {
     const cleanupCallbacks: Array<() => void> = [];
+    document.documentElement.classList.add("effects-ready");
 
     const revealEls = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
     const revealObserver = new IntersectionObserver((entries) => {

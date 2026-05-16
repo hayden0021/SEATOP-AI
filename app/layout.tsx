@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NeuralCanvas from "./components/NeuralCanvas";
+import FloatingBackground from "./components/FloatingBackground";
 
 export const metadata: Metadata = {
   title: {
@@ -15,10 +16,16 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
+        <FloatingBackground />
         <NeuralCanvas />
         <Header />
         {children}

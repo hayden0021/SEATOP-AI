@@ -10,6 +10,7 @@ export default function NeuralCanvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -52,10 +53,10 @@ export default function NeuralCanvas() {
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          const max = 145 * dpr;
+          const max = 155 * dpr;
           if (distance < max) {
-            ctx.globalAlpha = (1 - distance / max) * 0.16;
-            ctx.strokeStyle = "#075fff";
+            ctx.globalAlpha = (1 - distance / max) * 0.22;
+            ctx.strokeStyle = "#18d8ff";
             ctx.lineWidth = 1 * dpr;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -66,8 +67,8 @@ export default function NeuralCanvas() {
       }
 
       for (const point of points) {
-        ctx.globalAlpha = 0.34;
-        ctx.fillStyle = "#05cfff";
+        ctx.globalAlpha = 0.42;
+        ctx.fillStyle = "#7bf7ff";
         ctx.beginPath();
         ctx.arc(point.x, point.y, point.r, 0, Math.PI * 2);
         ctx.fill();
