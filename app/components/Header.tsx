@@ -82,7 +82,7 @@ export default function Header() {
           <motion.nav
             className={`nav-links ${mobileOpen ? "open" : ""}`}
             aria-label="Main navigation"
-            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+            initial={false}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
             transition={{ duration: 0.22 }}
