@@ -1,6 +1,33 @@
 import type { PageKey } from "./pages";
 
 export const pageEnhancements: Partial<Record<PageKey, string>> = {
+  home: `
+<section class="section reference-dashboard">
+  <div class="container platform-split">
+    <div class="reveal"><span class="section-kicker">DROPSHIPPING INTELLIGENCE</span><h2>Data That Finds Winners.</h2><p>Our intelligence platform analyzes product categories, supplier readiness and market signals to surface practical product opportunities for online commerce.</p><ul class="check-list"><li>Winning product discovery</li><li>Supplier and competitor analysis</li><li>Market and trend insights</li><li>Real-time performance tracking</li></ul><a class="btn btn-primary" href="/ai-dropshipping">Explore Platform <span class="btn-icon">›</span></a></div>
+    <div class="analytics-console reveal" aria-hidden="true">
+      <div class="console-sidebar"><img src="/assets/seatop-mark.png" alt=""/><span>Overview</span><span>Products</span><span>Suppliers</span><span>Orders</span><span>Analytics</span></div>
+      <div class="console-main">
+        <div class="console-top"><b>Overview</b><span>⌕ ↗</span></div>
+        <div class="metric-row"><div><span>Total Revenue</span><b>$12.45M</b><em>+18.6%</em></div><div><span>Orders</span><b>152,680</b><em>+21.4%</em></div><div><span>Profit</span><b>$3.68M</b><em>+16.2%</em></div><div><span>ROI</span><b>2.94x</b><em>+11.7%</em></div></div>
+        <div class="chart-panel"><div class="chart-line"></div><span class="chart-pin">$13.65M<br/>May 30th</span></div>
+        <div class="console-grid"><div><b>Winning Products</b><span>Portable blender</span><span>Smart watch</span><span>LED strip lights</span></div><div><b>Top Suppliers</b><span>Shenzhen Hub 4.9</span><span>Global Dropship 4.8</span><span>Prime Fulfill 4.7</span></div><div><b>Market Trends</b><span>Demand +24%</span><span>Competition -8%</span><span>Saturation Low</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section taste-reference">
+  <div class="container taste-reference-grid">
+    <div class="reveal"><span class="section-kicker">TASTEPILOT</span><h2>Your AI Taste Companion.</h2><p>TastePilot helps users discover, compare and save food choices using recommendation logic that feels personal and simple.</p><ul class="check-list"><li>AI recommendations</li><li>Personalized collections</li><li>Smart tracking and alerts</li><li>Seamless experience</li></ul><div class="store-badges"><span>App Store</span><span>Google Play</span></div></div>
+    <div class="phone-trio reveal" aria-hidden="true"><div></div><div></div><div></div></div>
+  </div>
+</section>
+<section class="section yacht-cta">
+  <div class="container future-grid reveal">
+    <div><span class="section-kicker">LET'S BUILD THE FUTURE</span><h2>Ready to Scale With AI?</h2><p>Partner with SEATOP AI to unlock automation, intelligence and data-driven growth without losing the clarity customers expect.</p></div>
+    <div class="get-in-touch"><h3>Get in Touch</h3><p>hello@seatop.ai</p><p>WhatsApp enquiries available</p><p>Global AI workflow projects</p><a class="btn btn-primary" href="/contact">Book a Demo <span class="btn-icon">›</span></a></div>
+  </div>
+</section>`,
   aiAgents: `
 <section class="section ocean-band">
   <div class="container">

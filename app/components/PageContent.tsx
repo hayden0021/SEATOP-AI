@@ -6,8 +6,8 @@ import { pageHtml } from "@/lib/pages";
 
 export default function PageContent({ pageKey }: { pageKey: PageKey }) {
   return (
-    <MotionPage>
-      <div dangerouslySetInnerHTML={{ __html: pageHtml[pageKey] }} />
+    <MotionPage className={`page page-${pageKey}`}>
+      <div className="page-fragment" dangerouslySetInnerHTML={{ __html: pageHtml[pageKey] }} />
       {pageEnhancements[pageKey] ? <div dangerouslySetInnerHTML={{ __html: pageEnhancements[pageKey] }} /> : null}
       <SiteEffects />
     </MotionPage>
