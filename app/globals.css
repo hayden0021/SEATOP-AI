@@ -170,13 +170,10 @@ p { color: var(--muted); line-height: 1.72; }
   background: transparent;
   box-shadow: none;
   backdrop-filter: none;
-  transition: transform .3s ease;
+  transition: none;
 }
 .brand::before {
   content: none;
-}
-.brand:hover {
-  transform: translateY(-1px);
 }
 .brand-logo-wordmark {
   position: relative;
@@ -185,30 +182,20 @@ p { color: var(--muted); line-height: 1.72; }
   height: 44px;
   overflow: hidden;
   flex: 0 0 auto;
+  transform-origin: center;
+  transition: transform .28s ease;
 }
 .brand-logo-wordmark::after {
-  content: "";
-  position: absolute;
-  inset: 4px 0;
-  background: radial-gradient(ellipse at 62% 50%, rgba(53,229,255,.38), rgba(22,119,255,.15) 34%, transparent 70%);
-  filter: blur(14px);
-  opacity: 0;
-  transition: opacity .3s ease;
-  z-index: 0;
-  pointer-events: none;
+  content: none;
 }
 .brand-logo-wordmark img {
   object-fit: cover;
-  object-position: 50% 58%;
-  transition: filter .3s ease, transform .3s ease;
+  object-position: 50% 50%;
+  transition: transform .28s ease;
   z-index: 1;
 }
-.brand:hover .brand-logo-wordmark::after {
-  opacity: 1;
-}
-.brand:hover .brand-logo-wordmark img {
-  filter: drop-shadow(0 0 10px rgba(144,246,255,.62)) drop-shadow(0 0 24px rgba(53,229,255,.32));
-  transform: translateZ(0) scale(1.01);
+.brand:hover .brand-logo-wordmark {
+  transform: scale(1.04);
 }
 .brand-logo-mark {
   position: relative;
@@ -225,7 +212,6 @@ p { color: var(--muted); line-height: 1.72; }
 .brand-logo-mark img {
   object-fit: cover;
   object-position: 50% 50%;
-  filter: drop-shadow(0 0 10px rgba(53,229,255,.18));
 }
 .nav-links { display: flex; align-items: center; gap: 5px; }
 .nav-links > a, .nav-drop-btn {
