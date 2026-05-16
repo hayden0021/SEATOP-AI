@@ -169,29 +169,16 @@ p { color: var(--muted); line-height: 1.72; }
   background:
     linear-gradient(135deg, rgba(8, 24, 45, 0.82), rgba(3, 12, 28, 0.66)),
     rgba(8, 24, 45, 0.68);
-  border: 1px solid rgba(110, 222, 255, 0.34);
-  box-shadow:
-    0 0 26px rgba(0, 190, 255, 0.16),
-    inset 0 0 18px rgba(255, 255, 255, 0.045);
+  border: 1px solid transparent;
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(16px);
-  transition: border-color .3s ease, box-shadow .3s ease, background .3s ease, transform .3s ease;
+  transition: box-shadow .3s ease, background .3s ease, transform .3s ease;
 }
 .brand::before {
-  content: "";
-  position: absolute;
-  inset: -1px 20% auto 16%;
-  height: 1px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(97, 218, 255, .95), transparent);
-  box-shadow: 0 0 14px rgba(53, 229, 255, .65);
-  opacity: .85;
-  pointer-events: none;
+  content: none;
 }
 .brand:hover {
-  border-color: rgba(120, 235, 255, 0.55);
-  box-shadow:
-    0 0 30px rgba(0, 210, 255, 0.26),
-    inset 0 0 18px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.045);
   transform: translateY(-1px);
 }
 .brand-logo-wordmark {
@@ -202,9 +189,29 @@ p { color: var(--muted); line-height: 1.72; }
   overflow: hidden;
   flex: 0 0 auto;
 }
+.brand-logo-wordmark::after {
+  content: "";
+  position: absolute;
+  inset: 4px 0;
+  background: radial-gradient(ellipse at 62% 50%, rgba(53,229,255,.38), rgba(22,119,255,.15) 34%, transparent 70%);
+  filter: blur(14px);
+  opacity: 0;
+  transition: opacity .3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
 .brand-logo-wordmark img {
   object-fit: cover;
   object-position: 50% 58%;
+  transition: filter .3s ease, transform .3s ease;
+  z-index: 1;
+}
+.brand:hover .brand-logo-wordmark::after {
+  opacity: 1;
+}
+.brand:hover .brand-logo-wordmark img {
+  filter: drop-shadow(0 0 10px rgba(144,246,255,.62)) drop-shadow(0 0 24px rgba(53,229,255,.32));
+  transform: translateZ(0) scale(1.01);
 }
 .brand-logo-mark {
   position: relative;
