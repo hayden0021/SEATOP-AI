@@ -88,7 +88,7 @@ export default function SiteEffects() {
           btn.classList.add("btn-ghost");
         } else {
           shortlist.set(name, { name, price });
-          btn.textContent = "Added ✓";
+          btn.textContent = "Added";
           btn.classList.add("btn-primary");
           btn.classList.remove("btn-ghost");
         }
@@ -100,8 +100,9 @@ export default function SiteEffects() {
 
     if (shortlistEmail) {
       const onShortlistEmail = () => {
-        const items = Array.from(shortlist.values()).map((item, index) => `${index + 1}. ${item.name} — RM ${item.price}`).join("
-");
+        const items = Array.from(shortlist.values())
+          .map((item, index) => `${index + 1}. ${item.name} - RM ${item.price}`)
+          .join("\n");
         const subject = encodeURIComponent("SEATOP AI Dropshipping Product Quote");
         const body = encodeURIComponent(`Hi SEATOP AI,
 
@@ -144,9 +145,8 @@ Thank you.`);
         const lines: string[] = [];
         formData.forEach((value, key) => lines.push(`${key}: ${value}`));
         const service = formData.get("Service") || "SEATOP AI Enquiry";
-        const subject = encodeURIComponent(`SEATOP AI Enquiry — ${service}`);
-        const body = encodeURIComponent(lines.join("
-"));
+        const subject = encodeURIComponent(`SEATOP AI Enquiry - ${service}`);
+        const body = encodeURIComponent(lines.join("\n"));
         window.location.href = `mailto:${SEATOP_CONFIG.email}?subject=${subject}&body=${body}`;
       };
       form.addEventListener("submit", onSubmit);
