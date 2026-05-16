@@ -3,7 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -23,6 +23,7 @@ const solutionItems = [
 export default function Header() {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -34,10 +35,40 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setDropdownOpen(false);
+    setMobileOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!dropdownOpen) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!dropdownRef.current?.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setDropdownOpen(false);
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [dropdownOpen]);
+
+  const closeMenus = () => {
+    setMobileOpen(false);
+    setDropdownOpen(false);
+  };
+
   return (
     <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
       <div className="container nav-shell">
-        <Link className="brand" href="/" aria-label="SEATOP AI home">
+        <Link className="brand" href="/" aria-label="SEATOP AI home" onClick={closeMenus}>
           <span className="brand-mark-wrap" aria-hidden="true">
             <img className="brand-mark-img" src="/assets/seatop-mark.png" alt="" />
           </span>
@@ -54,32 +85,32 @@ export default function Header() {
             transition={{ duration: 0.22 }}
           >
             {navItems.slice(0, 4).map((item) => (
-              <Link key={item.href} href={item.href} className={pathname === item.href ? "active" : ""} onClick={() => setMobileOpen(false)}>
+              <Link key={item.href} href={item.href} className={pathname === item.href ? "active" : ""} onClick={closeMenus}>
                 {item.label}
               </Link>
             ))}
 
-            <div className={`nav-dropdown ${dropdownOpen ? "open" : ""}`}>
+            <div ref={dropdownRef} className={`nav-dropdown ${dropdownOpen ? "open" : ""}`} onMouseLeave={() => setDropdownOpen(false)}>
               <button className="nav-drop-btn" type="button" onClick={() => setDropdownOpen((value) => !value)} aria-expanded={dropdownOpen}>
                 Solutions <span aria-hidden="true">⌄</span>
               </button>
               <div className="dropdown-menu">
                 {solutionItems.map((item) => (
-                  <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)}>
+                  <Link key={item.href} href={item.href} onClick={closeMenus}>
                     {item.label}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setMobileOpen(false)}>
+            <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={closeMenus}>
               Contact
             </Link>
           </motion.nav>
         </AnimatePresence>
 
         <div className="nav-actions">
-          <Link className="btn btn-primary btn-small" href="/contact">
+          <Link className="btn btn-primary btn-small" href="/contact" onClick={closeMenus}>
             Get Started <span className="btn-icon">›</span>
           </Link>
           <button className={`mobile-toggle ${mobileOpen ? "open" : ""}`} aria-label="Open menu" aria-expanded={mobileOpen} onClick={() => setMobileOpen((value) => !value)}>
