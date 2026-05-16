@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -68,11 +69,13 @@ export default function Header() {
   return (
     <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
       <div className="container nav-shell">
-        <Link className="brand" href="/" aria-label="SEATOP AI home" onClick={closeMenus}>
-          <span className="brand-mark-wrap" aria-hidden="true">
-            <img className="brand-mark-img" src="/assets/seatop-mark.png" alt="" />
+        <Link className="brand logoWrapper" href="/" aria-label="SEATOP AI home" onClick={closeMenus}>
+          <span className="brand-logo-wordmark">
+            <Image src="/assets/darkmode-seatop-wordmark.png" alt="SEATOP AI logo" fill sizes="260px" priority />
           </span>
-          <img className="brand-wordmark" src="/assets/seatop-wordmark.png" alt="SEATOP AI" />
+          <span className="brand-logo-mark">
+            <Image src="/assets/darkmode-seatop-mark.png" alt="SEATOP AI logo" fill sizes="44px" priority />
+          </span>
         </Link>
 
         <AnimatePresence>
