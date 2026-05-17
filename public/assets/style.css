@@ -119,3 +119,40 @@ h1,h2,h3,p{margin-top:0}h1{font-size:clamp(3.1rem,6vw,6.25rem);line-height:.96;l
 @media (max-width:680px){
   .container{width:min(100% - 28px,var(--container))}.section{padding:58px 0}h1{font-size:clamp(2.9rem,14vw,4.4rem)}h2{font-size:2.25rem}.lead{font-size:1.02rem}.hero{min-height:unset;padding:44px 0 28px}.hero-visual{min-height:440px}.mark-monolith{width:92%}.base-disc{width:390px;height:128px;bottom:36px}.orbit-ring{width:410px;height:410px}.orbit-ring.r2{width:500px;height:500px}.float-panel{min-width:auto;padding:10px 12px}.float-panel.p1{left:0;top:14%}.float-panel.p2{right:0;top:12%}.float-panel.p3{left:0;bottom:28%}.float-panel.p4{right:0;bottom:26%}.float-panel svg{width:26px;height:26px}.connector{display:none}.card-row,.grid-3,.grid-4,.product-grid{grid-template-columns:1fr}.service-card{grid-template-columns:1fr}.section-head{display:block}.footer-grid{grid-template-columns:1fr}.copyright{flex-direction:column;align-items:flex-start}.phone-mock{width:260px;height:520px}.restaurant-card{grid-template-columns:64px 1fr}.restaurant-card .btn{grid-column:1/-1}.restaurant-image{width:64px;height:64px}.industry-strip{display:block}.industry-title{display:block;margin-bottom:10px}.industry-item{border-left:0;border-top:1px solid rgba(8,104,255,.12)}
 }
+
+/* Theme-aware readability */
+:root{
+  --text-strong:var(--navy);
+  --text-body:var(--ink);
+  --text-muted:var(--muted);
+  --surface-readable:rgba(255,255,255,.88);
+  --surface-soft-readable:rgba(239,248,255,.82);
+  --on-dark:#fff;
+}
+h1,h2,h3,h4,.section-head h2,.process-title h2,.price strong,.product-price strong,.industry-title{color:var(--text-strong)}
+body,p,.lead,.small,label,input,select,textarea,.field label,.form-note,.agent-card li,.package-card li,.check-list li,.industry-item,.shortlist-line,.product-price span,.trust-item span,.float-panel span,.restaurant-card,.contact-method p{color:var(--text-body)}
+.eyebrow,.section-kicker,.tag,.service-card,.glass-card,.product-card,.package-card,.info-card,.agent-card,.use-case-card,.shortlist-card,.calculator-card,.contact-card,.form-card,.restaurant-card,.app-card,.trust-item,.float-panel,.process-panel,.industry-strip,.dropdown-menu{background:var(--surface-readable);color:var(--text-body)}
+.field input,.field select,.field textarea,.newsletter input{color:var(--text-strong);background:rgba(255,255,255,.92)}
+.btn-primary,.filter-btn.active,.filter-btn:hover,.cta-band,.cta-band h2,.cta-band p,.cta-band .btn-ghost,.food-icon{color:var(--on-dark)}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --text-strong:#eef8ff;
+    --text-body:#c4d8e8;
+    --text-muted:#9fb6c9;
+    --surface-readable:rgba(7,20,42,.82);
+    --surface-soft-readable:rgba(11,36,72,.62);
+    --on-dark:#fff;
+  }
+  body{
+    color:var(--text-body);
+    background:
+      radial-gradient(circle at 15% 5%,rgba(20,124,255,.18),transparent 34rem),
+      radial-gradient(circle at 82% 20%,rgba(53,229,255,.12),transparent 30rem),
+      linear-gradient(180deg,#020817 0%,#051225 42%,#020817 100%);
+  }
+  .site-header,.dropdown-menu,.nav-links.open{background:rgba(2,8,23,.88);border-color:rgba(112,222,255,.18)}
+  .nav-links>a,.nav-drop-btn,.dropdown-menu a{color:var(--text-body)}
+  .nav-links>a:hover,.nav-drop-btn:hover,.nav-links>a.active,.dropdown-menu a:hover{color:var(--text-strong)}
+  .btn-ghost{color:var(--text-strong);background:rgba(8,28,58,.62)}
+}
